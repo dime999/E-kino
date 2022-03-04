@@ -3,35 +3,36 @@
     <form [formGroup]="form">
         <mat-form-field appearance="outline">
             <mat-label>Ime</mat-label>
-            <input formControlName="title" matInput> 
+            <input formControlName="naslov" matInput> 
            
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Zanr</mat-label>
-            <mat-select formControlName="zanrID">
+            <mat-select formControlName="zanrId">
                 <mat-option *ngFor="let x of zanrovi" [value]="x.id">{{x.name}}</mat-option>
                
             </mat-select>
            
         </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Odaberite dan</mat-label>
+            <mat-select formControlName="kinoProjekcijaId">
+                <mat-option *ngFor="let x of projekcije" [value]="x.id">{{x.dan}}</mat-option>
+               
+            </mat-select>
+           
+        </mat-form-field>
 
-       <div>
-        <button mat-flat-button color="primary">PON</button>
-        <button mat-flat-button color="warn">UTO</button>
-        <button mat-flat-button color="accent">SRI</button>
-        <button mat-flat-button color="primary">ČET</button>
-        <button mat-flat-button color="warn">PET</button>
-        <button mat-flat-button color="accent">SUB</button>
-        <button mat-flat-button color="primary">NED</button>
+       
 
-       </div>
+       
     
         <div>
-            <mat-checkbox formControlName="upcomingRealases">Uskoro izlaze</mat-checkbox>
+            <mat-checkbox formControlName="uskoro_se_prikazuje">Uskoro izlaze</mat-checkbox>
         </div>
         <div>
-            <mat-checkbox formControlName="inTheaters">U kinima</mat-checkbox>
+            <mat-checkbox formControlName="prikazuje_Se">U kinima</mat-checkbox>
         </div>
         <div class="clear-container">
             <button mat-flat-button (click)="cleanForm()" color="warn">Očisti formu</button>
@@ -40,3 +41,6 @@
 
         
         </form> 
+
+        <app-film-lista [filmovi]="filmovi"></app-film-lista>
+

@@ -13,7 +13,7 @@ export interface filmCreationDTO{
     zanrovi: number[],
     kina: number[],
     glumci: glumciFilmDTO[];
-    kinoprojekcije:number[];
+    kinoProjekcije:number[];
     
     }
 export interface filmDTO{
@@ -27,7 +27,7 @@ export interface filmDTO{
     zanrovi: zanrDTO[],
     kina: kinoDTO[],
     glumci: glumciFilmDTO[];
-    kinoprojekcije:projekcijaDTO[];
+    kinoProjekcije:projekcijaDTO[];
 
        
 }
@@ -47,7 +47,8 @@ export interface FilmPutGetDTO {
     odabranaKina: kinoDTO[];
     neOdabranaKina: kinoDTO[];
     glumci: glumciFilmDTO[];
-    kinoprojekcije:projekcijaDTO[];
+    odabraneKinoProjekcije:projekcijaDTO[];
+    neOdabraneKinoProjekcije:projekcijaDTO[];
 }
 
 export interface homeDTO {

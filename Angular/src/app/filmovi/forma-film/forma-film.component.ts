@@ -36,8 +36,7 @@ export class FormaFilmComponent implements OnInit {
   @Input()
   neOznaceniZanrovi: multipleSelectorModel[] = [];
 
-  @Input()
-  neOznaceniTermini: multipleSelectorModel[] = [];
+ 
 
   @Input()
   oznaceniZanrovi: multipleSelectorModel[] = [];
@@ -51,7 +50,9 @@ export class FormaFilmComponent implements OnInit {
   @Input()
   oznaceniGlumci: glumciFilmDTO[] = [];
 
-  
+
+  @Input()
+  neOznaceniTermini: multipleSelectorModel[] = [];
   @Input()
   oznaceniTermini: multipleSelectorModel[] = [];
 
