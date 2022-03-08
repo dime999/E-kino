@@ -5,3 +5,8 @@ mat-toolbar{
     z-index: 1000;
     color: blueviolet;
 }
+
+
+.pregled{
+    display: flex;
+}

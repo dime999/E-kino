@@ -56,7 +56,7 @@ namespace KinoAPI.Controllers
         [HttpGet("filter")]
         public async Task<ActionResult<List<FilmVM>>> Filter([FromQuery] FilterFilmVM filterFilm)
         {
-            var filmQueryable = context.Filmovi.AsQueryable();
+            var filmQueryable = context.Filmovi.Include(x=>x.FilmKinoProjekcija).ThenInclude(y=>y.KinoProjekcija).AsQueryable();
 
             if (!string.IsNullOrEmpty(filterFilm.Naslov))
             {
@@ -77,12 +77,43 @@ namespace KinoAPI.Controllers
                 filmQueryable = filmQueryable.Where(x => x.DatumIzalska > today);
             }
 
-            if (filterFilm.KinoProjekcijaId != 0)
+            //if (filterFilm.KinoProjekcijaId != 0)
+            //{
+            //    filmQueryable = filmQueryable
+            //       .Where(x => x.FilmKinoProjekcija.Select(y => y.KinoProjekcijaId)
+            //       .Contains(filterFilm.KinoProjekcijaId));
+            //}
+
+            if (!string.IsNullOrEmpty(filterFilm.Dan))
             {
-                filmQueryable = filmQueryable
-                   .Where(x => x.FilmKinoProjekcija.Select(y => y.KinoProjekcijaId)
-                   .Contains(filterFilm.KinoProjekcijaId));
+
+                foreach (var i in filmQueryable)
+                {
+                    if (i.FilmKinoProjekcija != null)
+                    {
+                        foreach (var j in i.FilmKinoProjekcija)
+                        {
+                            if (j.KinoProjekcija != null)
+
+                            {
+                                int provjera = j.KinoProjekcija.dan.CompareTo(filterFilm.Dan);
+                                if (provjera==0)
+                                {
+                                     filmQueryable = filmQueryable.Where(x => x.FilmKinoProjekcija.Select(y => y.KinoProjekcijaId).Contains(j.KinoProjekcijaId));
+                                   
+                                   
+                                }
+                               
+
+                             }
+                           
+                        }
+                        
+                    }
+                   
+                }
             }
+             
 
 
             if (filterFilm.ZanrId != 0)
@@ -232,6 +263,23 @@ namespace KinoAPI.Controllers
             homeDTO.prikazuje_se = mapper.Map<List<FilmVM>>(inTheaters);
             return homeDTO;
 
+        }
+
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var film = await context.Filmovi.FirstOrDefaultAsync(x => x.id == id);
+
+            if (film == null)
+            {
+                return NotFound();
+            }
+
+            context.Remove(film);
+            await context.SaveChangesAsync();
+            await fileStorageService.DeleteFile(film.Poster, container);
+            return NoContent();
         }
 
 

@@ -15,14 +15,25 @@
             </mat-select>
            
         </mat-form-field>
-        <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline">
             <mat-label>Odaberite dan</mat-label>
-            <mat-select formControlName="kinoProjekcijaId">
-                <mat-option *ngFor="let x of projekcije" [value]="x.id">{{x.dan}}</mat-option>
-               
+            <mat-select formControlName="dan">
+                <mat-option value="Ponedeljak" >Ponedeljak</mat-option>
+                <mat-option value="Utorak">Utorak</mat-option>
+                <mat-option value="Srijeda">Srijeda</mat-option>
+                <mat-option value="Četvrtak">Četvrtak</mat-option>
+                <mat-option value="Petak">Petak</mat-option>
+                <mat-option value="Subota">Subota</mat-option>
+                <mat-option value="Nedelja">Nedelja</mat-option>
             </mat-select>
            
-        </mat-form-field>
+        </mat-form-field>  
+
+
+         <!--    <mat-form-field appearance="outline">
+        <button mat-flat-button color="primary" formControlName="dan" onclick="Ponedeljak()">Pon</button>
+
+       </mat-form-field> -->
 
        
 

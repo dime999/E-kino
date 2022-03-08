@@ -26,6 +26,9 @@ export class FilmFilterComponent implements OnInit {
   izdanjaPoStranici=10;
   startnaVrijesnot:any;
   ukupnaVrijednost:any;
+  selectedDay: string = '';
+
+  
 
   
 
@@ -37,16 +40,16 @@ export class FilmFilterComponent implements OnInit {
       zanrId: 0,
       uskoro_se_prikazuje:false,
       prikazuje_Se: false,
-      kinoProjekcijaId:0,
+      dan:this.selectedDay,
     
     });
     this.startnaVrijesnot=this.form.value;
    // this.readParametersFromURL();
     this.zanrService.getAll().subscribe((x:any)=>{
       this.zanrovi=x;
-      this.projekcijaService.getAll().subscribe((x:any)=>{
+     /* this.projekcijaService.getAll().subscribe((x:any)=>{
         this.projekcije=x;
-      });
+      });*/
       
       this.filterMovies(this.form.value);
       this.form.valueChanges.subscribe(values=>{
@@ -60,6 +63,7 @@ export class FilmFilterComponent implements OnInit {
     });
 
     this.filterMovies(this.form.value);
+    console.log(this.selectedDay);
   }
   filterMovies(values: any){
     
@@ -71,6 +75,11 @@ export class FilmFilterComponent implements OnInit {
     })
   }
 
+
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.selectedDay = event.target.value;
+  }
   
 
  
@@ -80,6 +89,11 @@ export class FilmFilterComponent implements OnInit {
     this.form.patchValue(this.startnaVrijesnot);
 
   }
+
+  Ponedeljak(){
+    this.selectedDay='Ponedeljak';
+  }
+  
 
  /* private readParametersFromURL(){
     this.activatedROute.queryParams.subscribe(params => {

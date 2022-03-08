@@ -11,7 +11,8 @@
         //    get { return new PaginationVM() { Page=Stranica,RecordsPerPage=BrojPoStranici}; }
         //}
         public string Naslov { get; set; }
-        public int KinoProjekcijaId { get; set; }
+        public string Dan { get; set; }
+        //public int KinoProjekcijaId { get; set; }
 
 
         public int ZanrId { get; set; }

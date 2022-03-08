@@ -54,6 +54,8 @@ import { ProjekcijaIndexComponent } from './projekcija/projekcija-index/projekci
 import { ProjekcijaFormComponent } from './projekcija/projekcija-form/projekcija-form.component';
 import { ProjekcijaEditComponent } from './projekcija/projekcija-edit/projekcija-edit.component';
 import { ProjekcijaAddComponent } from './projekcija/projekcija-add/projekcija-add.component';
+import { AutorizacijaPregledComponent } from './security/autorizacija-pregled/autorizacija-pregled.component';
+import { LoginComponent } from './security/login/login.component';
 
 
 
@@ -107,6 +109,8 @@ import { ProjekcijaAddComponent } from './projekcija/projekcija-add/projekcija-a
     ProjekcijaFormComponent,
     ProjekcijaEditComponent,
     ProjekcijaAddComponent,
+    AutorizacijaPregledComponent,
+    LoginComponent,
     
     
   

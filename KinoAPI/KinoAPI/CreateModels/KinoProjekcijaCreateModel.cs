@@ -10,7 +10,8 @@ namespace KinoAPI.CreateModels
 
         public string dan { get; set; }
 
-        public string termin { get; set; }
+         public string termin { get; set; }
+        
 
 
     }

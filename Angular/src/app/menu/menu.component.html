@@ -7,6 +7,11 @@
     <div>
        <a mat-button routerLink="film/film-filter"><mat-icon>search</mat-icon>Pretraga filmova</a>
    </div>
+
+<app-autorizacija-pregled class="pregled" [role]="'admin'">
+<ng-container authorized>
+
+    
     <div>
         <a mat-button routerLink="zanrovi">Zanrovi</a>
     </div>
@@ -36,6 +41,14 @@
 <div>
     <a mat-button routerLink="artikli">Artikli</a>
 </div>
+
+
+
+</ng-container>
+
+
+</app-autorizacija-pregled>
+
 
 
    

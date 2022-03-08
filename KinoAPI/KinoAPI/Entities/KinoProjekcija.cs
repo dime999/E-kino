@@ -13,6 +13,7 @@ namespace KinoAPI.Entities
 
         public string dan { get; set; }
         public string termin { get; set; }
+      
        
 
         public List<KinoProjekcija> FilmKinoProjekcija { get; set; }

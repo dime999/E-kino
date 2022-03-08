@@ -12,5 +12,6 @@ namespace KinoAPI.ViewModels
         public string dan { get; set; }
 
         public string termin { get; set; }
+       
     }
 }
