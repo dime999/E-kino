@@ -25,6 +25,7 @@ import { ProjekcijaAddComponent } from './projekcija/projekcija-add/projekcija-a
 import { ProjekcijaEditComponent } from './projekcija/projekcija-edit/projekcija-edit.component';
 import { IsAdminGuard } from './is-admin.guard';
 import { LoginComponent } from './security/login/login.component';
+import { RegisterComponent } from './security/register/register.component';
 const routes: Routes = [
 
   {path:'',component: HomeComponent},
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path:'eventi/edit/:id',component:EventiEditComponent,canActivate: [IsAdminGuard]},
 
 
+  {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
 ];
 

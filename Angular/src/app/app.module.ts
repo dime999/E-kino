@@ -56,6 +56,11 @@ import { ProjekcijaEditComponent } from './projekcija/projekcija-edit/projekcija
 import { ProjekcijaAddComponent } from './projekcija/projekcija-add/projekcija-add.component';
 import { AutorizacijaPregledComponent } from './security/autorizacija-pregled/autorizacija-pregled.component';
 import { LoginComponent } from './security/login/login.component';
+import { RegisterComponent } from './security/register/register.component';
+import { AutorizacijaFormComponent } from './security/autorizacija-form/autorizacija-form.component';
+import { DisplayErrorsComponent } from './utilities/display-errors/display-errors.component';
+
+
 
 
 
@@ -111,6 +116,10 @@ import { LoginComponent } from './security/login/login.component';
     ProjekcijaAddComponent,
     AutorizacijaPregledComponent,
     LoginComponent,
+    RegisterComponent,
+    AutorizacijaFormComponent,
+    DisplayErrorsComponent
+    
     
     
   

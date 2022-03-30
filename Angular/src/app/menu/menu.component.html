@@ -49,6 +49,22 @@
 
 </app-autorizacija-pregled>
 
+<div style="position: relative; margin-left: 45rem;" class="space">
+<app-autorizacija-pregled>
+    <ng-container authorized>
+        <span>Zdravo, {{securitService.getFieldFromJWT('email')}}</span>
+        <a mat-button (click)="securitService.logout()">Odjava</a>
+
+    </ng-container>
+    <ng-container notAuthorized>
+       
+        <a mat-button routerLink="login">Prijava</a>
+        <a mat-button routerLink="register">Registracija</a>
+
+    </ng-container>
+</app-autorizacija-pregled>
+</div>
+
 
 
    
